@@ -14,12 +14,18 @@ const user: UserData = { name: "Joaquin", age: 26, phone: 954221982 };
 //La funcion getData con valor generico que recibe un generico y que devuelve void
 function getData<T>(d: T): void {
   //La guard para cuando sea number lance un mensaje y si no lance otro
-  if (typeof d == "number") {
-    console.log("->", d);
+  if (isNumber(d)) {
+    console.log("number ->", d);
   } else {
     console.log("El nombre del usuario es: ", d);
   }
 }
+
+//Funcion guard
+function isNumber<T>(data: T): boolean {
+  return typeof data == "number";
+}
+
 //Llamadas al metodo getData
 getData(user.name);
 getData(user.phone);
