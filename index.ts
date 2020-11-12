@@ -5,6 +5,21 @@
 // OPCIONAL: Dentro de "getData" añadid un condicional con una guarda para diferenciar cuando reciba un tipo "number" y sacar por consola mensajes distintos para las dos llamadas anteriormente mencionadas.
 // Ánimo que ya lo tenéis!
 
+//Importamos la interfaz
 import { UserData } from "./user-data";
 
+//Creamos un user con la interfaz UserData
+const user: UserData = { name: "Joaquin", age: 26, phone: 954221982 };
 
+//La funcion getData con valor generico que recibe un generico y que devuelve void
+function getData<T>(d: T): void {
+  //La guard para cuando sea number lance un mensaje y si no lance otro
+  if (typeof d == "number") {
+    console.log("->", d);
+  } else {
+    console.log("El nombre del usuario es: ", d);
+  }
+}
+//Llamadas al metodo getData
+getData(user.name);
+getData(user.phone);
